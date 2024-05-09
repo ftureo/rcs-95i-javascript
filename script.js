@@ -517,3 +517,62 @@ const transformToUpperCaseAndTrim = (text) => {
 };
 
 console.log(transformToUpperCaseAndTrim("  Rolling Code School        "));
+
+console.log("Continuamos con funciones");
+
+// 1) Vamos a desarrollar una función que tome un string como parámetro y determine si esa palabra/frase es palíndromos (capicua)
+// neuquen - radar - oso - La ruta nos aporto otro paso natural
+
+const isPalindrome = (string) => {
+    // Me aseguro que esté llegando el parámetro:
+    console.log("A ver el string", string);
+
+    // Transformar la entrada a minusculas/mayusculas
+    const textToLowerCase = string.toLowerCase(); // Listo ✔️
+    // Vemos si lo transformó -- Opcional
+    console.log("A ver si lo pasa a minúsculas", textToLowerCase);
+
+    // Eliminar los espacios al principio y final
+    const trimmedText = textToLowerCase.trim();
+    // Compruebo si lo hizo
+    console.log("¿Le quitó los espacios al principio y al final", trimmedText);
+
+    // Elimino los espacios entre palabras
+    // Input: esta es una oracion
+    // Output: estaesunaoracion
+
+    // Existe el método .replace()
+    // .replace(pattern, replacement)
+    // .replace(reemplazaEsto, conEsto)
+    // .replace(" ", "")
+
+    // const removeSpacesBetween = trimmedText.replace(" ", "") // CASI PERO NO - INVESTIGAR
+    // Vamos a implementar algo un poquito (bastante) más complejo
+    // REGEX: Regular Expression - Son expresiones que me permiten evaluar un conjunto de propiedades - Regex para eliminar espacios en blanco: "/\s/g"
+
+    const removeSpacesBetween = trimmedText.replace(/\s/g, ""); // Listo ✔️
+    console.log("Removió?", removeSpacesBetween);
+
+    //  Invertimos la lectura del texto
+    // const reversedText = removeSpacesBetween.reverse() // No se puede de manera directa entonces vamos a buscarle la vuelta
+
+    const splittedText = removeSpacesBetween.split(""); // Devolvió un array
+    console.log("Split devuelve ", splittedText);
+
+    // Ahora sí puedo aplicar reverse
+    const reversedText = splittedText.reverse();
+    console.log(reversedText);
+
+    const joinedText = reversedText.join("");
+    console.log("Texto unido a partir del array dado vuelta", joinedText);
+
+    return removeSpacesBetween === joinedText;
+};
+
+console.log(isPalindrome("     PER RiTo MalV ADo     "));
+// Output: false
+console.log("oSo es palindromo?", isPalindrome("oSo"));
+isPalindrome("river"); // Output: false
+isPalindrome("Neuquen"); // Output: true
+// "Neuquen" !== "neuquen"
+isPalindrome("La ruta nos aporto otro paso natural");
