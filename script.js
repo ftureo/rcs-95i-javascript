@@ -523,7 +523,7 @@ console.log("Continuamos con funciones");
 // 1) Vamos a desarrollar una función que tome un string como parámetro y determine si esa palabra/frase es palíndromos (capicua)
 // neuquen - radar - oso - La ruta nos aporto otro paso natural
 
-const isPalindrome = (string) => {
+const isPalindromeExplained = (string) => {
     // Me aseguro que esté llegando el parámetro:
     console.log("A ver el string", string);
 
@@ -569,10 +569,25 @@ const isPalindrome = (string) => {
     return removeSpacesBetween === joinedText;
 };
 
-console.log(isPalindrome("     PER RiTo MalV ADo     "));
+console.log(isPalindromeExplained("     PER RiTo MalV ADo     "));
 // Output: false
-console.log("oSo es palindromo?", isPalindrome("oSo"));
-isPalindrome("river"); // Output: false
-isPalindrome("Neuquen"); // Output: true
+console.log("oSo es palindromo?", isPalindromeExplained("oSo"));
+isPalindromeExplained("river"); // Output: false
+isPalindromeExplained("Neuquen"); // Output: true
 // "Neuquen" !== "neuquen"
-isPalindrome("La ruta nos aporto otro paso natural");
+isPalindromeExplained("La ruta nos aporto otro paso natural");
+
+const isPalindrome = (string) => {
+    const textToLowerCase = string.toLowerCase(); // Listo ✔️
+    const trimmedText = textToLowerCase.trim();
+    const removeSpacesBetween = trimmedText.replace(/\s/g, ""); // Listo ✔️
+
+    const splittedText = removeSpacesBetween.split(""); // Listo ✔️
+    const reversedText = splittedText.reverse(); // Listo ✔️
+    const joinedText = reversedText.join(""); // Listo ✔️
+
+    return removeSpacesBetween === joinedText;
+};
+
+// "11" == 11 // true - Porque no compara tipos de datos y el valor es el mismo
+// "11" === 11 // false - Porque compara tipos de datos y el valor es el mismo mientras que los tipos de datos son diferentes
