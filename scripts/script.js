@@ -411,11 +411,11 @@ if (numberToEvaluate % 2 === 0) {
 // Javascript moderno - ECMASCRIPT 6
 numberToEvaluate % 2 === 0
     ? console.log(
-          `El número ${numberToEvaluate} es par desde el condicional ternario`
-      ) // Esta es la parte del true
+        `El número ${numberToEvaluate} es par desde el condicional ternario`
+    ) // Esta es la parte del true
     : console.log(
-          `El número ${numberToEvaluate} es impar desde el condicional ternario`
-      ); // Esta es la parte del true
+        `El número ${numberToEvaluate} es impar desde el condicional ternario`
+    ); // Esta es la parte del true
 
 // FUNCIONES
 // Las funciones son bloques de código que se pueden reutilizar
