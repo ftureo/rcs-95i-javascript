@@ -6,3 +6,12 @@
     border-radius: 5px;
     margin: 10px;
 }
+
+.sizingTitleRecipe {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.sizingDescriptionRecipe {
+    font-size: 1rem;
+}
