@@ -4,6 +4,11 @@ console.log("Render List Script Loaded");
 
 const mainSection = document.getElementById("main-list-recipes");
 console.log("Vemos el nodo principal: ", mainSection);
+mainSection.addEventListener("click", () => {
+    console.log("Click en el main section")
+    mainSection.style.backgroundColor = "red"
+    console.log("Te cambié el color")
+})
 // Qué devuelve el getElementById? Respuesta: Elemento HTML
 
 // TAREAS
@@ -292,6 +297,10 @@ const recipes = [
 ]
 
 console.log(recipes)
+// Seteando valores por default en los parámetros de una función
+const limitCharacters = (text, limit = 100) => {
+    return text.length > limit ? `${text.slice(0, limit)}(...)` : text
+}
 
 // Ciclos: for, forEach, map
 
@@ -334,16 +343,16 @@ const createRecipeCard = (recipe) => {
 
     const title = document.createElement("h2");
     title.textContent = Name
-    title.classList.add("card-title")
+    title.classList.add("card-title", "text-center", "sizingTitleRecipe")
 
 
     const author = document.createElement("h3");
     author.textContent = `Author: ${Author}`
-    author.classList.add("card-text")
+    author.classList.add("card-text", "sizingDescriptionRecipe")
     author.style.fontStyle = "italic"
 
     const description = document.createElement("p");
-    description.textContent = Description
+    description.textContent = limitCharacters(Description, 150)
     description.classList.add("card-text")
 
     const anchor = document.createElement("a");
